@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodieHub - Online Food Ordering</title>
+  <link rel="stylesheet" href="food.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>&#127869; FoodieHub</h1>
+    <div class="cart-badge">&#128722; Cart: <span id="cartCount">0</span></div>
+  </header>
+  <main class="layout">
+    <!-- Menu section -->
+    <section class="menu-section">
+      <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search food by name...">
+        <div id="categoryFilters" class="filters"></div>
+      </div>
+      <div id="foodGrid" class="food-grid"></div>
+      <p id="noResults" class="message hidden">No food items match your search.</p>
+    </section>
+    <!-- Cart section -->
+    <aside class="cart-section">
+      <h2>Your Cart</h2>
+      <p id="emptyMessage" class="message">Your cart is empty. Add some delicious food!</p>
+      <ul id="cartList" class="cart-list"></ul>
+      <div class="total-row">
+        <span>Total</span>
+        <strong id="cartTotal">₹0</strong>
+      </div>
+      <button id="clearCartBtn" class="btn-secondary">Clear Cart</button>
+      <button id="checkoutBtn" class="btn-primary">Review Order</button>
+    </aside>
+  </main>
+  <!-- Checkout / order review -->
+  <section id="checkoutSection" class="checkout hidden">
+    <h2>Review &amp; Place Order</h2>
+    <div class="checkout-grid">
+      <div>
+        <h3>Order Summary</h3>
+        <table class="summary-table">
+          <thead>
+            <tr><th>Item</th><th>Qty</th><th>Price</th><th>Subtotal</th></tr>
+          </thead>
+          <tbody id="summaryBody"></tbody>
+          <tfoot>
+            <tr><td colspan="3">Grand Total</td><td id="summaryTotal">₹0</td></tr>
+          </tfoot>
+        </table>
+      </div>
+      <form id="orderForm" novalidate>
+        <h3>Customer Details</h3>
+        <label for="custName">Full Name</label>
+        <input type="text" id="custName" placeholder="Enter your name">
+        <small class="error" id="nameError"></small>
+        <label for="custPhone">Phone Number</label>
+        <input type="text" id="custPhone" placeholder="10-digit mobile number" maxlength="10">
+        <small class="error" id="phoneError"></small>
+        <label for="custEmail">Email</label>
+        <input type="email" id="custEmail" placeholder="you@example.com">
+        <small class="error" id="emailError"></small>
+        <label for="custAddress">Delivery Address</label>
+        <textarea id="custAddress" rows="3" placeholder="House no, street, city"></textarea>
+        <small class="error" id="addressError"></small>
+        <button type="submit" class="btn-primary">Place Order</button>
+        <button type="button" id="backBtn" class="btn-secondary">Back to Menu</button>
+      </form>
+    </div>
+  </section>
+  <!-- Order success message -->
+  <section id="successSection" class="success hidden">
+    <div class="success-box">
+      <div class="tick">&#9989;</div>
+      <h2>Order Submitted Successfully!</h2>
+      <p id="successText"></p>
+      <button id="newOrderBtn" class="btn-primary">Place Another Order</button>
+    </div>
+  </section>
+  <footer>© 2026 FoodieHub · Fundamentals of Web Development Hackathon</footer>
+  <script src="food.js"></script>
+</body>
+</html>
